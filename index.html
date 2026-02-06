@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 Ano - Nicolas & Camilly</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff5f7;
+            color: #4a4a4a;
+            overflow-x: hidden;
+        }
+        h1, .script-font {
+            font-family: 'Great Vibes', cursive;
+        }
+        
+        /* Efeito de revelar ao rolar */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Moldura estilo Polaroid */
+        .polaroid {
+            background: white;
+            padding: 12px;
+            padding-bottom: 40px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .polaroid:hover {
+            transform: scale(1.02) rotate(0deg) !important;
+            z-index: 10;
+        }
+        
+        /* Imagem Hero */
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('IMG_20250614_185755.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+        }
+
+        /* Corações animados */
+        .floating-heart {
+            position: fixed;
+            color: #ff4d6d;
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-20vh) scale(1.2); opacity: 0; }
+        }
+
+        /* Animação de Carregamento */
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #ff4d6d;
+            width: 20px;
+            height: 20px;
+            -webkit-animation: spin 1s linear infinite; /* Safari */
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- Container para corações -->
+    <div id="hearts-container" class="fixed inset-0 pointer-events-none"></div>
+
+    <!-- Seção Principal (Capa) -->
+    <header class="hero-bg flex flex-col items-center justify-center text-white text-center px-4 relative shadow-xl">
+        <div class="z-10 animate-fade-in-up">
+            <p class="text-lg tracking-[0.2em] mb-2 uppercase shadow-black drop-shadow-md">Bem-vinda ao nosso mundo</p>
+            <h1 class="text-7xl mb-4 drop-shadow-lg">1 Ano de Nós</h1>
+            <p class="text-2xl script-font drop-shadow-md">Nicolas & Camilly</p>
+        </div>
+        <!-- Seta indicando para descer -->
+        <div class="absolute bottom-8 animate-bounce">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 space-y-24 relative z-10">
+        
+        <!-- Bloco de Texto 1 -->
+        <section class="text-center space-y-6 reveal">
+            <p class="text-xl leading-relaxed">
+                <span class="text-5xl text-red-500 script-font block mb-2">Hoje completamos 1 ano.</span>
+                Parece pouco perto de tudo o que eu quero viver com você, mas já é o suficiente para eu ter certeza de que você é a mulher da minha vida.
+            </p>
+        </section>
+
+        <!-- Galeria 1: Momentos Especiais (3 fotos) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
+            <div class="polaroid rotate-2">
+                <img src="IMG_20250614_200311.jpg" alt="Restaurante" class="w-full h-64 object-cover">
+            </div>
+            <div class="polaroid -rotate-2 md:mt-12">
+                <img src="IMG_20250524_203116_1.jpg" alt="Linda" class="w-full h-64 object-cover">
+            </div>
+            <div class="polaroid rotate-1">
+                <img src="IMG_20250629_171655.jpg" alt="Sorriso" class="w-full h-64 object-cover">
+            </div>
+        </section>
+
+        <!-- Bloco de Texto 2 -->
+        <section class="text-center space-y-6 reveal bg-white p-8 rounded-2xl shadow-sm border border-red-100">
+            <p class="text-lg text-gray-600 italic">
+                "Obrigado por cada momento, por cada sorriso e por ser exatamente quem você é."
+            </p>
+            <p class="text-lg leading-relaxed">
+                Esse primeiro ano foi só o começo da nossa história. Olho para trás e vejo o quanto crescemos, e olho para frente e vejo o nosso futuro e o quanto eu quero construir uma vida e, um dia, uma família ao seu lado.
+            </p>
+            <p class="text-2xl text-red-600 script-font font-bold">
+                Você é a mulher da minha vida, Camilly.
+            </p>
+        </section>
+
+        <!-- Destaque: Casal Van Gogh (Foto Grande) -->
+        <section class="reveal">
+            <div class="polaroid rotate-0 max-w-2xl mx-auto">
+                <img src="IMG_20251019_142724.jpg" alt="Nós no Van Gogh" class="w-full h-auto object-cover rounded">
+                <p class="text-center mt-4 script-font text-2xl text-gray-500">Nossa arte favorita</p>
+            </div>
+        </section>
+
+        <!-- Bloco de Texto 3 -->
+        <section class="text-center space-y-6 reveal">
+            <p class="text-lg leading-relaxed">
+                Obrigado por esse ano maravilhoso e por me fazer tão feliz. Que venham muitos outros, porque o meu lugar é ao seu lado.
+            </p>
+            <p class="text-lg leading-relaxed">
+                Eu olho para nós dois e sinto um orgulho imenso do que estamos construindo. Não somos perfeitos, mas somos de verdade. E é justamente nessa nossa verdade, no dia a dia, nas conversas, nos planos e até nos silêncios, que eu vejo o nosso futuro se desenhando.
+            </p>
+        </section>
+
+        <!-- Galeria 2: Momentos Divertidos (3 fotos) -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+            <div class="polaroid -rotate-3">
+                <img src="IMG_20251224_094535.jpg" alt="Diversão" class="w-full h-80 object-cover">
+                <p class="text-center mt-2 text-sm text-gray-400">Nossas palhaçadas</p>
+            </div>
+            <div class="polaroid rotate-3">
+                <img src="IMG_20250718_104033.jpg" alt="Chapéu" class="w-full h-80 object-cover">
+                <p class="text-center mt-2 text-sm text-gray-400">Alegria pura</p>
+            </div>
+        </section>
+
+        <!-- Bloco de Texto 4 -->
+        <section class="text-center space-y-6 reveal bg-white p-8 rounded-2xl shadow-sm border border-red-100">
+            <p class="text-lg leading-relaxed">
+                Eu quero muito mais do que apenas mais um ano. Quero conquistar nossos sonhos, ver você crescer, aplaudir você e segurar sua mão nos desafios.
+            </p>
+            <p class="text-lg leading-relaxed font-semibold text-gray-700">
+                Obrigado por me escolher todos os dias. Eu prometo continuar te escolhendo, te cuidando e te amando com toda a minha força, hoje, amanhã e por todos os anos que virão.
+            </p>
+        </section>
+
+        <!-- Fotos Finais -->
+        <section class="grid grid-cols-2 gap-4 reveal">
+             <div class="polaroid rotate-1">
+                <img src="IMG_20251001_092136.jpg" alt="Vento" class="w-full h-48 object-cover">
+            </div>
+             <div class="polaroid -rotate-1">
+                <img src="IMG_20260107_094644.jpg" alt="Óculos" class="w-full h-48 object-cover">
+            </div>
+        </section>
+
+        <!-- AI FEATURES SECTION -->
+        <section class="reveal bg-gradient-to-br from-red-50 to-pink-100 p-8 rounded-3xl shadow-xl border border-red-200 mt-12">
+            <div class="text-center mb-8">
+                <h2 class="text-4xl text-red-600 script-font mb-2">✨ Mágica do Nosso Amor ✨</h2>
+                <p class="text-gray-600 text-sm">Usei Inteligência Artificial para te dizer o quanto te amo de formas novas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Feature 1: Love Reason Generator -->
+                <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <h3 class="font-bold text-gray-700 mb-4">💌 Por que eu te amo?</h3>
+                    <p class="text-xs text-gray-500 mb-4">Clique para descobrir um motivo especial (gera um novo a cada clique!)</p>
+                    <div id="love-reason-box" class="min-h-[80px] flex items-center justify-center p-4 bg-red-50 rounded-lg border border-red-100 mb-4 italic text-gray-600 text-sm transition-all">
+                        "Clique no botão abaixo..."
+                    </div>
+                    <button id="btn-reason" onclick="generateLoveReason()" class="bg-red-500 text-white px-6 py-2 rounded-full hover:bg-red-600 transition shadow flex items-center justify-center gap-2 w-full">
+                        <span id="loader-reason" class="loader hidden"></span>
+                        <span>✨ Descobrir Motivo</span>
+                    </button>
+                </div>
+
+                <!-- Feature 2: Poem Generator -->
+                <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <h3 class="font-bold text-gray-700 mb-4">🌹 Poeta Particular</h3>
+                    <p class="text-xs text-gray-500 mb-4">A IA vai escrever um poema exclusivo sobre nós dois agora.</p>
+                    <div id="poem-box" class="min-h-[80px] flex items-center justify-center p-4 bg-red-50 rounded-lg border border-red-100 mb-4 italic text-gray-600 text-sm transition-all whitespace-pre-line">
+                        "Seu poema aparecerá aqui..."
+                    </div>
+                    <button id="btn-poem" onclick="generatePoem()" class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition shadow flex items-center justify-center gap-2 w-full">
+                         <span id="loader-poem" class="loader hidden"></span>
+                        <span>✨ Escrever Poema</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Encerramento -->
+        <section class="text-center reveal pb-12 mt-12">
+            <div class="mb-8">
+                <img src="IMG_20250322_094613.jpg" alt="Flores" class="w-48 h-48 object-cover rounded-full mx-auto border-4 border-white shadow-lg">
+            </div>
+            <h2 class="text-4xl text-red-600 script-font mb-4">Parabéns para nós, meu amor.</h2>
+            <button onclick="alert('Eu te amo mais do que as palavras podem dizer! ❤️')" class="bg-red-500 text-white px-8 py-3 rounded-full hover:bg-red-600 transition shadow-lg transform hover:scale-105">
+                Eu te amo infinitamente ❤️
+            </button>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-6 text-gray-400 text-sm bg-white mt-12">
+        <p>Feito com amor por Nicolas para Camilly &bull; 1 Ano</p>
+    </footer>
+
+    <script>
+        // === GEMINI API INTEGRATION ===
+        const apiKey = ""; // API Key handled by environment
+
+        async function callGemini(prompt) {
+            if (!apiKey) {
+                // Fallback for demo if no key is injected (though environment usually injects it)
+                console.warn("API Key not found. Using simulation.");
+                return "Simulação: Você é incrível e eu te amo muito! (Adicione a API Key para funcionar com IA real)";
+            }
+
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
+            const payload = {
+                contents: [{
+                    parts: [{ text: prompt }]
+                }]
+            };
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`API Error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                return data.candidates[0].content.parts[0].text;
+            } catch (error) {
+                console.error("Gemini API Error:", error);
+                return "O amor é tão grande que travou a IA! ❤️ Tente de novo.";
+            }
+        }
+
+        async function generateLoveReason() {
+            const box = document.getElementById('love-reason-box');
+            const loader = document.getElementById('loader-reason');
+            
+            // Show loading
+            loader.classList.remove('hidden');
+            box.innerText = "Pensando em algo especial...";
+            box.classList.add('opacity-50');
+
+            // Prompt engineering
+            const prompt = "Você é um assistente romântico. O namorado se chama Nicolas e a namorada Camilly. Eles fazem 1 ano de namoro. Gere UMA frase curta, criativa, romântica e fofa explicando um motivo pelo qual o Nicolas ama a Camilly. Seja específico, fale sobre sorriso, parceria, ou futuro. Apenas a frase. Em Português.";
+
+            const text = await callGemini(prompt);
+            
+            // Show result
+            box.classList.remove('opacity-50');
+            box.innerText = text;
+            loader.classList.add('hidden');
+        }
+
+        async function generatePoem() {
+            const box = document.getElementById('poem-box');
+            const loader = document.getElementById('loader-poem');
+            
+            // Show loading
+            loader.classList.remove('hidden');
+            box.innerText = "Escrevendo versos...";
+            box.classList.add('opacity-50');
+
+            // Prompt engineering
+            const prompt = "Escreva um poema curto (máximo 4 linhas) e muito romântico sobre Nicolas e Camilly celebrando 1 ano de namoro. Fale sobre amor eterno e felicidade. Estilo leve e emocionante. Em Português.";
+
+            const text = await callGemini(prompt);
+            
+            // Show result
+            box.classList.remove('opacity-50');
+            box.innerText = text;
+            loader.classList.add('hidden');
+        }
+
+        // === EXISTING ANIMATIONS ===
+        
+        // Animação ao rolar a página (Scroll Reveal)
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Init
+
+        // Gerar corações flutuantes aleatórios
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            document.getElementById('hearts-container').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+        setInterval(createHeart, 400);
+    </script>
+</body>
+</html>
