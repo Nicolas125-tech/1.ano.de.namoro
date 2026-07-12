@@ -240,7 +240,7 @@
 
     <script>
         // === GEMINI API INTEGRATION ===
-        const apiKey = "AIzaSyD8PrDYQovoX9Szc02Z-jFNoe0vZhFYWBw"; // API Key handled by environment
+        const apiKey = window.GEMINI_API_KEY; // API Key handled by environment
 
         async function callGemini(prompt) {
             if (!apiKey) {
