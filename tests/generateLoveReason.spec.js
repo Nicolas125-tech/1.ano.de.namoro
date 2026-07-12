@@ -16,6 +16,7 @@ test('generateLoveReason fetches from Gemini and updates DOM', async ({ page }) 
   const mockedReason = 'O sorriso dela ilumina o meu mundo.';
 
   // Navigate to local server
+  await page.addInitScript(() => window.GEMINI_API_KEY = 'mock-api-key');
   await page.goto('/');
 
   const box = page.locator('#love-reason-box');
@@ -84,6 +85,7 @@ test('generateLoveReason handles API error gracefully', async ({ page }) => {
   });
 
   // Navigate to local server
+  await page.addInitScript(() => window.GEMINI_API_KEY = 'mock-api-key');
   await page.goto('/');
 
   const box = page.locator('#love-reason-box');
